@@ -1,6 +1,6 @@
 Daw Myu
 -------
-Python script that extracts text from a set of images and writes them into text file (organized by page).
+Python script that extracts text from a set of images and writes them into text file (organized by page). <br />
 Intended as a tool to assist in the translation of text in images.
 
 
