@@ -7,8 +7,8 @@ Getting Started
 ---------------
 When executing this script, users must provide three arguments in this order
 
-1| The path to the directory that holds the relevant images
-2| The name of the resultant text file
+1| The path to the directory that holds the relevant images <br />
+2| The name of the resultant text file <br />
 3| The Google API key (Google account required, sign up here -- https://cloud.google.com/vision/docs/ocr)
 
 
