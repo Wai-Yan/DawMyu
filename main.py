@@ -42,7 +42,7 @@ def placeGoogleOrder(imageAsString, apiKey):
         return ''
 
 
-def writeIntoTranslationGuide(extractedText, index, resultFileName):
+def writeIntoResultFile(extractedText, index, resultFileName):
 
     resultFileName += '.txt'
     textFile = open(resultFileName, 'a', encoding='utf-8')
@@ -74,7 +74,7 @@ def main(folderPath, resultFileName, apiKey):
         extractedText = placeGoogleOrder(imageAsString, apiKey)
 
         print('Writing results of ' + image + ' into guide...' + '\n')
-        writeIntoTranslationGuide(extractedText, image, resultFileName)
+        writeIntoResultFile(extractedText, image, resultFileName)
 
     print('Done! ' + resultFileName + ' should be in this project\'s directory.')
 
@@ -86,7 +86,7 @@ def main(folderPath, resultFileName, apiKey):
 
 try:
     folderPath = sys.argv[1]
-    translationGuideTitle = sys.argv[2]
+    resultFileName = sys.argv[2]
     apiKey = sys.argv[3]
 
 except:
@@ -97,4 +97,4 @@ except:
           'Try putting quotes around each individual argument')
     sys.exit()
 
-main(folderPath, translationGuideTitle, apiKey)
+main(folderPath, resultFileName, apiKey)
