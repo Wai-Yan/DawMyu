@@ -1,6 +1,7 @@
 Daw Myu
 -------
-Python script that extracts text from a set of images and writes them into text file (organized by page)
+Python script that extracts text from a set of images and writes them into text file (organized by page).
+Intended as a tool to assist in the translation of text in images.
 
 
 Getting Started
@@ -11,6 +12,8 @@ When executing this script, users must provide three arguments in this order
 2| The name of the resultant text file <br />
 3| The Google API key (Google account required, sign up here -- https://cloud.google.com/vision/docs/ocr)
 
+Example: <br />
+    python main.py [Folder path] [Text file name] [Google API key]
 
 Prerequisites
 -------------
