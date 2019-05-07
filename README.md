@@ -1,2 +1,28 @@
-# DawMyu
-Image-extraction script
+Daw Myu
+-------
+Python script that extracts text from a set of images and writes them into text file (organized by page)
+
+
+Getting Started
+---------------
+When executing this script, users must provide three arguments in this order
+
+1| The path to the directory that holds the relevant images
+2| The name of the resultant text file
+3| The Google API key (Google account required, sign up here -- https://cloud.google.com/vision/docs/ocr)
+
+
+Prerequisites
+-------------
+Windows users might want to add Python to their PATH
+
+
+Built With
+----------
+Google Optical Character Recognition API (https://cloud.google.com/vision/docs/ocr)
+Requests: HTTP for Humans (https://2.python-requests.org/en/master/)
+
+
+License
+-------
+This project is licensed under the MIT License
