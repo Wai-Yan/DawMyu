@@ -19,7 +19,7 @@ Windows users might want to add Python to their PATH
 
 Built With
 ----------
-Google Optical Character Recognition API (https://cloud.google.com/vision/docs/ocr)
+Google Optical Character Recognition API (https://cloud.google.com/vision/docs/ocr) <br />
 Requests: HTTP for Humans (https://2.python-requests.org/en/master/)
 
 
