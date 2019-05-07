@@ -2,8 +2,11 @@ import base64
 import requests
 import os
 import sys
+import platform
+
 
 def prepareImage(pathToImage):
+    print(pathToImage)
 
     with open(pathToImage, 'rb') as imgFile:
         image = base64.b64encode(imgFile.read())
@@ -12,19 +15,20 @@ def prepareImage(pathToImage):
 
     return decodedImage
 
+
 def placeGoogleOrder(imageAsString, apiKey):
 
     # Request JSON
     googleOrder = {
-      "requests":[
+      "requests": [
         {
-          "image":{
+          "image": {
             "content": imageAsString
           },
-          "features":[
+          "features": [
             {
-              "type":"TEXT_DETECTION",
-              "maxResults":1
+              "type": "TEXT_DETECTION",
+              "maxResults": 1
             }
           ]
         }
@@ -47,27 +51,51 @@ def writeIntoResultFile(extractedText, index, resultFileName):
     resultFileName += '.txt'
     textFile = open(resultFileName, 'a', encoding='utf-8')
 
-    # Formatting writes
     textFile.write(index + '\n')
-    textFile.write('-------------------------------' + '\n')
 
-    # Actual content
+    underscoreBorder = generateUnderscoreBorder(len(index))
+    textFile.write(underscoreBorder + '\n')
+
     textFile.write(extractedText + '\n' + '\n')
 
     textFile.close()
 
+
 def writeTitle(title):
     textFile = open(title + '.txt', 'a', encoding='utf-8')
 
-    textFile.write(title)
-    textFile.write('-------------------------------' + '\n' + '\n ')
+    underscoreBorder = generateUnderscoreBorder(len(title))
+
+    textFile.write(title + '\n' + underscoreBorder + '\n\n')
+
+
+def generateUnderscoreBorder(contentLength):
+    underscoreBorder = ''
+
+    for i in range(contentLength):
+        underscoreBorder += '-'
+
+    return underscoreBorder
+
+
+def changePathName(image):
+
+    if (platform.system() == 'Darwin'):
+        imagePath = folderPath + '/' + image
+
+    elif (platform.system() == 'Windows'):
+        imagePath = folderPath + '\\' + image
+
+    return imagePath
+
 
 def main(folderPath, resultFileName, apiKey):
 
     writeTitle(resultFileName)
 
     for image in os.listdir(folderPath):
-        imagePath = folderPath + '\\' + image
+
+        imagePath = changePathName(image)      
         imageAsString = prepareImage(imagePath)
 
         print('Sending ' + image + ' to Google...')
@@ -76,8 +104,8 @@ def main(folderPath, resultFileName, apiKey):
         print('Writing results of ' + image + ' into guide...' + '\n')
         writeIntoResultFile(extractedText, image, resultFileName)
 
-    print('Done! ' + resultFileName + ' should be in this project\'s directory.')
-
+    print('Done! ' + resultFileName +
+          ' should be in this project\'s directory.')
 
 
 # ~~~~
