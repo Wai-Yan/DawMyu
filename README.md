@@ -1,5 +1,5 @@
-Daw Myu
--------
+ImageGrab
+---------
 Python script that extracts text from a set of images and writes them into text file (organized by page). <br />
 Intended as a tool to assist in the translation of text in images.
 
@@ -14,11 +14,6 @@ When executing this script, users must provide three arguments in this order
 
 Example: <br />
     python main.py [Folder path] [Text file name] [Google API key]
-
-Prerequisites
--------------
-Windows users might want to add Python to their PATH
-
 
 Built With
 ----------
